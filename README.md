@@ -5,7 +5,7 @@ A simple automation framework based on selenium (Works with firefox and Chrome a
 A Dockerfile is provided in this repo , Which installs the necessary softwares and run the automation . 
 The steps are as follows 
 Step 1: Download the docker folder and navigate to it 
-Step 2: Build the image using the command docker **build -t execution_env:latest .**
+Step 2: Build the image using the command **docker build -t execution_env:latest .**
 Step 3: Run the image using the command **docker run execution_env:latest**
 This will fetch the latest code from git and run the automation , All the results will be shown in the console at this moment . 
 
