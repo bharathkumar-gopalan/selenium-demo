@@ -10,6 +10,7 @@ import com.flaconi.ecomm.portal.qa.automation.page.cart.CartPage;
 
 public class ProductPage extends Page<ProductPage> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProductPage.class);
+	private static final int NOTIFICATION_ELEMENT_TIMEOUT_IN_SECONDS = 5;
 	// Error messages
 	private static final String NO_SKU_ITEM_FOUND_MESSAGE = "Unable to find the sku item %s in the product page";
 	private final Bot bot;
@@ -59,6 +60,10 @@ public class ProductPage extends Page<ProductPage> {
 			}
 
 		});
+		if(this.bot.isElementPresent(ProductPageElement.FREQUENTLY_BOUGHT_ITEM_OVERLAY, NOTIFICATION_ELEMENT_TIMEOUT_IN_SECONDS)){
+			LOGGER.debug("The freqently bought item overlay is displayed , dismissing the same for now ");
+			this.bot.click(ProductPageElement.PROCEED_TO_CART_BUTON);
+		}
 		final CartPage cartPage = new CartPage(this.bot);
 		cartPage.isLoaded();
 		return cartPage;
